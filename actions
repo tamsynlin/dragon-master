@@ -1,0 +1,20 @@
+
+CentOS 7.3  --- A
+Python? 2.6.4 ==> 3.5
+
+install postfix 3.1
+install fuglu-0.6.6.tar.gz (md5)
+
+postfix-filter-loop (3.1)
+
+RBL
+SPF
+
+URL
+
+
+Write X-Headers in Msg
+
+https://github.com/tamsynlin/dragon-master
+
+Github
