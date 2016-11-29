@@ -1,3 +1,4 @@
+#!/root/Python-3.5.2/python 
 # Author: Miroslav Houdek miroslav.houdek at gmail dot com
 # License is, do whatever you wanna do with it (at least I think that that is what LGPL v3 says)
 #
@@ -7,7 +8,7 @@ import sys
 sys.path.append('/tmp/postfixmitler/')
 import asyncore
 import asynchat
-from gwpsmtplib import *
+from new_smtplib import *
 import traceback
 
 class CustomSMTPServer(new_SMTPServer):
@@ -23,6 +24,13 @@ class CustomSMTPServer(new_SMTPServer):
 		print('2 done')
 		print(Query().rbl_lookup(ip))
 		print('3 done')
+		ip='4.4.4.4'
+		print(Query().rbl_lookup(ip))
+		print('4 done')
+		ip='5.5.5.5'
+		print(Query().rbl_lookup(ip))
+		print('5 done')
+
 		for recipient in rcpttos:
 			recipient.replace('\'', '')
 			recipient.replace('\"', '')
