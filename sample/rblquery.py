@@ -8,7 +8,7 @@ class Query():
         try:
             ret = socket.gethostbyname('%s.%s'% (reverse_ip,'zen.spamhaus.org'))#https://www.spamhaus.org/faq/section/DNSBL%20Usage#200
             third_octect=int(ret.split('.')[3])
-            if 9 <  third_octect < int(12):
+            if 9 <  third_octect < 12:
                 value='PBL'
             elif(1<third_octect<4) or (third_octect==9) :
                 value='SBL'
