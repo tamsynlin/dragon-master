@@ -1,5 +1,5 @@
 
-11/29 - ToDo:
+ToDo:
 Variable Script
 Log Function
 Quarantine Action
@@ -7,32 +7,31 @@ xforwarder Parser
 Mail Parser
 Update Query() - Add Domain Query
 Install GIT Client on Server
-
-11/28 - Uploaded sample IP Validator version (1)
-
-11/1
-[done]CentOS 7.3  --- A
-[done]Python? 2.6.4 ==> 3.5
-[done]install postfix 3.1
-
 install fuglu-0.6.6.tar.gz (md5)
 postfix-filter-loop (3.1)
-[done]RBL
-
 SPF
 URL
 
 
+11/29 - Review
+11/28 - Uploaded sample IP Validator version (1)
+[done]RBL
+11/1
+[done]CentOS 7.3  --- A
+[done]Python? 2.6.4 ==> 3.5
+[done]install postfix 3.1
 [done]Write X-Headers in Msg
 
-https://github.com/tamsynlin/dragon-master
 
-Github
 
 
 1 after queue filter, how to take quarantine action
 2 plug-ins
 
+
+https://github.com/tamsynlin/dragon-master
+
+Github
 
 
 
