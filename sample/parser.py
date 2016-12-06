@@ -6,10 +6,10 @@ class Parser():
     def __init__(self,data):
         self.data = data
     def x_header_parse(self):
-        print(self.data)
-        a=self.data.split(' ')[0]
-        b=self.data.split(' ')
-        print(a)
-        print(b)
-
-Parser('ADDR=10.0.0.5 PROTO=ESMTP HELO=[string] IDENT=E1BF64FF2FE  SOURCE=RMOTE').x_header_parse()
+        """Returns a dictionary of X Headers"""
+        ret={}#parse the X Headers on 
+        for value in self.data:
+            print(value)
+            ret[value.split('=')[0]] = value.split('=')[1]
+            continue
+        return(True, value)
