@@ -3,6 +3,7 @@ import socket
 from t_variable import v_rbl
 
 class Query():
+    #def __init__(self, ip):
     def rbl_lookup(self,reverse_ip):
         self.reverse_ip=reverse_ip
         value='Null'

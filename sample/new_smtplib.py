@@ -358,7 +358,7 @@ class SMTPChannel(asynchat.async_chat):
 
     def smtp_XFORWARD(self,arg):
 #        print(arg)
-        self.x_forward += arg + ','
+        self.x_forward += arg + ' '
         self.push('250 ok')
 
     def _strip_command_keyword(self, keyword, arg):

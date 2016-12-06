@@ -10,7 +10,7 @@ import asyncore
 import asynchat
 from new_smtplib import *
 import traceback
-
+from parser import *
 class CustomSMTPServer(new_SMTPServer):
 
 	def process_message(self, peer, mailfrom, rcpttos, data, x_forward, **kwargs):
@@ -18,9 +18,9 @@ class CustomSMTPServer(new_SMTPServer):
 		mailfrom.replace('\'', '')
 		mailfrom.replace('\"', '')
 		ip='2.2.2.2'
-		print(IPValidator().validate_ip(ip))
+		print(IPValidator(ip).validate_ip())
 		print('1 done')
-		print(IPValidator().reverse_ip('4.3.2.1'))
+		print(IPValidator('4.3.2.1').reverse_ip())
 		print('2 done')
 		print(Query().rbl_lookup(ip))
 		print('3 done')
@@ -30,6 +30,7 @@ class CustomSMTPServer(new_SMTPServer):
 		ip='5.5.5.5'
 		print(Query().rbl_lookup(ip))
 		print('5 done')
+		
 
 		for recipient in rcpttos:
 			recipient.replace('\'', '')
@@ -43,6 +44,7 @@ class CustomSMTPServer(new_SMTPServer):
 			print('BOOM HERE COMES THE BOOM')
 		print ('>> EOT')
 		print('Xforward Headers: ' + x_forward)
+		print(Parser(x_forward).x_header_parse())
 
 		try:
 			# DO WHAT YOU WANNA DO WITH THE EMAIL HERE
@@ -97,5 +99,5 @@ class CustomSMTPServer(new_SMTPServer):
 		return
 		
 server = CustomSMTPServer(('127.0.0.1', 10025), None)
-print('test')
+print('Starting....')
 asyncore.loop()
