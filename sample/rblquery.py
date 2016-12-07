@@ -1,11 +1,38 @@
 #!/root/Python-3.5.2/python 
 import socket
-from t_variable import v_rbl
+from ipvalidator import *
+from t_variable import *
 
 class Query():
-    #def __init__(self, ip):
-    def rbl_lookup(self,reverse_ip):
-        self.reverse_ip=reverse_ip
+    def __init__(self, data):
+        self.data=data
+        self.reverse_ip=''
+    def spamhaus_lookup(self):
+        data=self.data
+        ret=False
+        if not IPValidator(data).validate_ip():
+            try:
+               ret=self.dbl_lookup()
+            except ValueError as err:
+                #print(err)
+                pass
+                #unable to match DBL Lookup
+        else:
+                ip=data
+                self.reverse_ip=IPValidator(ip).reverse_ip()
+                if (self.reverse_ip==False):
+                    ret=(self.rbl_lookup())  
+                else:
+                    ret=False
+        return(ret)
+    def dbl_lookup(self):#dbl.spamhaus.org
+        #Domain
+        #
+        dns_result=socket.gethostbyname('%s.%s' % (self.data, 'dbl.spamhaus.org'))
+        #print(dns_result)
+        return(dns_result)
+    def rbl_lookup(self):
+        reverse_ip=self.reverse_ip
         value='Null'
         ret='Error'
         try:
@@ -17,15 +44,16 @@ class Query():
             else:
                 ret=dns_result
                 if 10 <=  third_octect <= 11:
-                    value=v_rbl.pbl
+                    value=pbl
                 elif(2<=third_octect<=3) or (third_octect==9) :
-                    value=v_rbl.sbl
+                    value=sbl
                 elif (4<=third_octect<=7):
-                    value=v_rbl.xbl
+                    value=xbl
                 else:
                     value='Undefined'
         
         except:
-            ret = ('Unable to match %s to any RBL' % reverse_ip)
+            ret = ('err Unable to match %s to any RBL' % reverse_ip)
         return(ret, value)            
 
+print(Query('test').spamhaus_lookup())

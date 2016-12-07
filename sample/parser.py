@@ -13,6 +13,6 @@ class Parser():
             if "=" in value:
                ret[value.split('=')[0]] = value.split('=')[1]
             continue
-        return(True, ret)
+        return(ret)
     
 #print(Parser('ADDR=2.2.2.2  PROTO=ESMTP HELO=[1.2.3.4] IDENT=39B4741C4547 SOURCE=REMOTE').x_header_parse())
