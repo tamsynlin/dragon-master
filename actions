@@ -1,18 +1,25 @@
 
 ToDo:
-Variable Script
+
 Log Function
 Quarantine Action
-xforwarder Parser
-Mail Parser
-Update Query() - Add Domain Query
+[IN-PROGRESS]Mail Parser -tslin  (can we add an attachment to the output?)
 Install GIT Client on Server
 install fuglu-0.6.6.tar.gz (md5)
 postfix-filter-loop (3.1)
 SPF
-URL
 Unit Tests
 
+
+
+
+12/15
+[done]Variable Script
+[done]URL
+[done]Update Query() - Add Domain Query
+[done]xforwarder Parser
+[done]install spamassassin
+[done]install clamav
 11/29 - Review
 11/28 - Uploaded sample IP Validator version (1)
 [done]RBL
