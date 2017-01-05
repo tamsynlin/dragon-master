@@ -1,4 +1,4 @@
-#!/root/Python-3.5.2/python 
+#!/usr/bin/python3.5
 # Author: Miroslav Houdek miroslav.houdek at gmail dot com
 # License is, do whatever you wanna do with it (at least I think that that is what LGPL v3 says)
 #

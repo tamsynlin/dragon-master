@@ -1,4 +1,4 @@
-#!/root/Python-3.5.2/python 
+#!/usr/bin/python3.5
 import sys
 import os
 import errno

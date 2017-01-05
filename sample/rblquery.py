@@ -1,7 +1,7 @@
-#!/root/Python-3.5.2/python 
+#!/usr/bin/python3.5
 import socket
-from ipvalidator import *
-from t_variable import *
+from ipvalidator import IPValidator
+from t_variable import dbl, rbl
 
 class Query():
     def __init__(self, data):

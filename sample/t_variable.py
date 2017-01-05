@@ -1,4 +1,4 @@
-#!/root/Python-3.5.2/python 
+#!/usr/bin/python3.5
 
 #https://www.spamhaus.org/faq/section/DNSBL%20Usage#200
 rbl = { 

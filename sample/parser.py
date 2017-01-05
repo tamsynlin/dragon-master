@@ -1,7 +1,6 @@
-#!/root/Python-3.5.2/python 
+#!/usr/bin/python3.5
 import os
 import sys
-from _ssl import err_codes_to_names
 
 class Parser():
     def __init__(self,data):
