@@ -6,8 +6,6 @@ from t_variable import *
 class Query():
     def __init__(self, data):
         self.data=data
-        self.dbl=dbl
-        self.rbl=rbl
         self.ret=IPValidator(data).reverse_ip()
         self.ret['query_data']=data
         #self.reverse_ip=''
