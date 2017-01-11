@@ -3,10 +3,13 @@ import socket
 from ipvalidator import IPValidator
 from t_variable import dbl, rbl
 
+
 class Query():
     def __init__(self, data):
         self.data=data
         self.ret=IPValidator(data).reverse_ip()
+        self.dbl=dbl
+        self.rbl=rbl
         self.ret['query_data']=data
         #self.reverse_ip=''
     def spamhaus_lookup(self):
