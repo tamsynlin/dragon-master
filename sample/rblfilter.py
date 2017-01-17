@@ -34,5 +34,5 @@ if __name__ == '__main__':
     rbl = RBLFilter("", param)
     rbl.Execute()
     res = rbl.get_result()
-    print("Execute result : %s", res)
+    print("Execute result : %s" % res)
 
