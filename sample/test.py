@@ -2,8 +2,7 @@
 # Author: Miroslav Houdek miroslav.houdek at gmail dot com
 # License is, do whatever you wanna do with it (at least I think that that is what LGPL v3 says)
 #
-from ipvalidator import *
-from rblquery import *
+
 import sys
 sys.path.append('/tmp/postfixmitler/')
 import asyncore
@@ -11,6 +10,12 @@ import asynchat
 from new_smtplib import *
 import traceback
 from parser import *
+
+import filterfactory
+
+from ipvalidator import *
+from rblquery import *
+
 class CustomSMTPServer(new_SMTPServer):
 
 	def process_message(self, peer, mailfrom, rcpttos, data, x_forward, **kwargs):
@@ -52,19 +57,26 @@ class CustomSMTPServer(new_SMTPServer):
 			# such as functions to change fields within the body (From, Reply-to etc), 
 			# and/or to send error codes/mails back to Postfix.
 			# Error handling is not really fantastic either.
-                        print ('Boom')
-                        pass
+			print ('Boom')
+			param = {}
+			param['ip'] = '123.27.90.88'
+			param['timeout'] = 2
+			msg = ""
+			
+			for filter in filterfactory.factory.get_filters():
+				instance = filter(msg, param)
+				instance.Execute()
 		except:
 			pass
 			print ('Something went south')
 			print (traceback.format_exc())
 
 		try:
-                        server = smtplib.SMTP('localhost', 10026)
-                        print(rcpttos)
-                        server.sendmail(mailfrom, rcpttos, data)
-                        server.quit()
-                        print ('send successful')
+			server = smtplib.SMTP('localhost', 10026)
+			print(rcpttos)
+			server.sendmail(mailfrom, rcpttos, data)
+			server.quit()
+			print ('send successful')
 		except smtplib.SMTPException:
 			print ('Exception SMTPException')
 			pass

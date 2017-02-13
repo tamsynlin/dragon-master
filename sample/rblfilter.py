@@ -5,6 +5,7 @@ Created on Jan 10, 2017
 '''
 import basefilter
 import rblquery
+import filterfactory
 
 
 class RBLFilter(basefilter.BaseFilter):
@@ -35,4 +36,6 @@ if __name__ == '__main__':
     rbl.Execute()
     res = rbl.get_result()
     print("Execute result : %s" % res)
+elif __name__ == 'rblfilter':
+    filterfactory.factory.register_filter(RBLFilter)
 
