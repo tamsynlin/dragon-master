@@ -63,8 +63,8 @@ class CustomSMTPServer(new_SMTPServer):
 			param['timeout'] = 2
 			msg = ""
 			
-			for filter in filterfactory.factory.get_filters():
-				instance = filter(msg, param)
+			for scanner in filterfactory.factory.get_filters():
+				instance = scanner(msg, param)
 				instance.Execute()
 		except:
 			pass

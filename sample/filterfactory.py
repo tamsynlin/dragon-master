@@ -17,7 +17,7 @@ class FilterFactory():
         self.filter_map.append(filter_object)
     
     def get_filters(self):
-        pass
+        return self.filter_map
     
 if __name__ == 'filterfactory':
     if factory == None:
