@@ -61,7 +61,7 @@ class CustomSMTPServer(new_SMTPServer):
 			param = {}
 			param['ip'] = '123.27.90.88'
 			param['timeout'] = 2
-			msg = ""
+			msg = data
 			
 			for scanner in filterfactory.factory.get_filters():
 				instance = scanner(msg, param)
